@@ -56,6 +56,12 @@ mercadopago.configure({
 const app = express();
 app.use(express.json());
 
+app.post("/webhook", (req, res) => {
+    console.log("Webhook recebido:", req.body);
+    res.sendStatus(200);
+});
+
+
 // 30 minutos de auto-delete de thread
 const THREAD_AUTO_DELETE_MS = 30 * 60 * 1000;
 
